@@ -46,7 +46,7 @@ def submit(func, *args, **kwargs):
         # "http://localhost:9091/code-combat-server/",
         data=payload
     )
-    return resp.content
+    return resp.content.decode('utf-8')
 
 def fight(func, *args, **kwargs):
     contents = submit(func, *args, **kwargs)
