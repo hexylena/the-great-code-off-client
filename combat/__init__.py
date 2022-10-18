@@ -42,7 +42,7 @@ def submit(func, *args, **kwargs):
     }
 
     resp = requests.post(
-        "https://cocalc.atgm.avans.nl/code-combat-server",
+        "https://cocalc.atgm.avans.nl/code-combat-server/",
         # "http://localhost:9091/code-combat-server/",
         data=payload
     )
