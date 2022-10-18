@@ -14,7 +14,7 @@ with open("requirements.txt") as fh:
 
 setup(
     name="code-combat-client",
-    version="0",
+    version="2",
     description="",
     author="@hexylena",
     author_email="hexylena@galaxians.org",

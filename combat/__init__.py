@@ -50,5 +50,5 @@ def submit(func, *args, **kwargs):
 
 def fight(func, *args, **kwargs):
     contents = submit(func, *args, **kwargs)
-    from IPython.display import display_html
-    display_html(contents)
+    from IPython.core.display import HTML
+    HTML(contents)
