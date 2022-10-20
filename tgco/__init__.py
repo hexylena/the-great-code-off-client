@@ -1,4 +1,5 @@
 from radon.visitors import ComplexityVisitor
+from memory_profiler import memory_usage
 import os
 import requests
 import time
@@ -26,19 +27,24 @@ def complexity_cyclomatic(func):
     return v.functions[0].complexity
 
 
+def memory(func, *args, **kwargs):
+    return max(memory_usage((func, args, kwargs)))
+
 def analyze(func, *args, **kwargs):
     t = execution_time(func, *args, **kwargs)
     c = complexity_bytecode(func) * 0.5 * complexity_cyclomatic(func),
-    return t, c
+    m = memory(func, *args, **kwargs)
+    return t, c, m
 
 def submit(func, *args, **kwargs):
-    t, c = analyze(func, *args, **kwargs)
+    t, c, m = analyze(func, *args, **kwargs)
 
     payload = {
         'user': os.environ['USER'],
         'name': func.__name__,
         'time': t,
         'complexity': c,
+        'memory': m,
     }
 
     resp = requests.post(
@@ -48,7 +54,7 @@ def submit(func, *args, **kwargs):
     )
     return resp.content.decode('utf-8')
 
-def fight(func, *args, **kwargs):
+def bake(func, *args, **kwargs):
     contents = submit(func, *args, **kwargs)
     from IPython.core.display import HTML
     HTML(contents)

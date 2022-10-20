@@ -14,7 +14,7 @@ def mean3(x):
     return s / len(x)
 
 
-from tcgo import analyze
+from tgco import analyze
 import random
 
 t = [random.random() for x in range(30)]
