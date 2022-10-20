@@ -42,8 +42,8 @@ def submit(func, *args, **kwargs):
     }
 
     resp = requests.post(
-        "https://cocalc.atgm.avans.nl/code-combat-server/",
-        # "http://localhost:9091/code-combat-server/",
+        "https://cocalc.atgm.avans.nl/the-great-code-off/",
+        # "http://localhost:9091/the-great-code-off/",
         data=payload
     )
     return resp.content.decode('utf-8')

@@ -14,7 +14,7 @@ def mean3(x):
     return s / len(x)
 
 
-from combat import analyze
+from tcgo import analyze
 import random
 
 t = [random.random() for x in range(30)]
