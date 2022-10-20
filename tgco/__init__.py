@@ -57,4 +57,6 @@ def submit(func, *args, **kwargs):
 def bake(func, *args, **kwargs):
     contents = submit(func, *args, **kwargs)
     from IPython.core.display import HTML
-    HTML(contents)
+    return HTML(contents)
+
+__all__ = ['submit', 'bake']

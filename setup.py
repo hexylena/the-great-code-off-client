@@ -9,7 +9,7 @@ with open("requirements.txt") as fh:
 
 setup(
     name="the-great-code-off",
-    version="5",
+    version="6",
     description="",
     author="@hexylena",
     author_email="hexylena@galaxians.org",
